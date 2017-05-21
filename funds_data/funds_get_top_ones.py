@@ -1,7 +1,7 @@
 import string
 import os
-from funds_gen_sorting_files import FundsSorter
-from settings import TODAY, RESULT_DIR, top_100_cfg, top_50_cfg
+from .funds_gen_sorting_files import FundsSorter
+from .settings import TODAY, RESULT_DIR, top_100_cfg, top_50_cfg
 
 
 ALL_FUNDS = []
@@ -77,13 +77,13 @@ def get_intersection(WriteFile, Top=100,
         else:
             final_set = set_1month
 
-    print "The following funds belong to top %d funds in recent %s" % (Top, rating_set)
+    print("The following funds belong to top %d funds in recent %s" % (Top, rating_set))
 
     with open(WriteFile, "w") as wf:
         for item in final_set:
             line = item + '\n'
             wf.write(line)
-            print line
+            print(line)
 
 
 def main():

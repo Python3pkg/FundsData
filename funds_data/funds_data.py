@@ -1,10 +1,10 @@
 import sys
 import argparse
 
-from __init__ import __version__
-import funds_download
-from funds_gen_sorting_files import funds_sorter
-import funds_get_top_ones
+from .__init__ import __version__
+from . import funds_download
+from .funds_gen_sorting_files import funds_sorter
+from . import funds_get_top_ones
 
 
 def main():
@@ -32,7 +32,7 @@ def main():
     args = parser.parse_args()
 
     if args.version:
-        print "version %s" % __version__
+        print("version %s" % __version__)
         exit(0)
 
     if args.run or len(sys.argv) == 1:

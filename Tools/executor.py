@@ -18,7 +18,7 @@ def get_price_list(target_id):
     
     index = 0    
     for item in price_list:
-        print index, item
+        print(index, item)
         index += 1
         
     return price_list
@@ -97,7 +97,7 @@ def calculate(price_list, init_index, all_money, report_mode='short_line'):
                              % (current_index, date, current_plan, op_msg, rest_money, current_units, current_price, total_money, result)
             else:
                 DAILY_INFO = "%(current_index)d - %(date)s: No Operation today" % {'current_index': current_index, 'date': date}
-            print DAILY_INFO
+            print(DAILY_INFO)
             
         else: 
             INFO = []
@@ -111,7 +111,7 @@ def calculate(price_list, init_index, all_money, report_mode='short_line'):
                 INFO.append("total money:   %s" % total_money)
                 INFO.append("result: %s\n"    % result)
             for item in INFO:
-                print item
+                print(item)
         
         ### 2.5 Make Plan for Tomorrow ###
         

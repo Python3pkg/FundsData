@@ -9,7 +9,7 @@ if not os.path.exists(BASEDIR):
     except Exception as ex:
         OLD_BASEDIR = BASEDIR
         BASEDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
-        print "Cannot create %s, will choose another folder for data: %s" % (OLD_BASEDIR, BASEDIR)
+        print("Cannot create %s, will choose another folder for data: %s" % (OLD_BASEDIR, BASEDIR))
 
 TODAY = time.strftime("%Y-%m-%d")
 

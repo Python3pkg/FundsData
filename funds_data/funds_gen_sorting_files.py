@@ -3,7 +3,7 @@
 import re
 import os
 import string
-from settings import WEB_PAGES, SORTING_FILES
+from .settings import WEB_PAGES, SORTING_FILES
 
 
 class FundsSorter(object):
@@ -32,7 +32,7 @@ class FundsSorter(object):
             mylist = s.split('\n')
 
         if s.count(str_tbody_start) != 1 or s.count(str_tbody_end) != 1:
-            print "Unrecognized tables: There are more than 1 pair of 'tbody' tags."
+            print("Unrecognized tables: There are more than 1 pair of 'tbody' tags.")
             return
 
         bInTable = False
@@ -78,7 +78,7 @@ class FundsSorter(object):
         except Exception as ex:
             InfoList[field] = "None"
             if line.find('<td class="hide-col"></td>') == -1:
-                print "Exception is %s: Wrong line is %s" % (str(ex), line)
+                print("Exception is %s: Wrong line is %s" % (str(ex), line))
 
 
     def analyze(self, file):
@@ -133,7 +133,7 @@ class FundsSorter(object):
             if os.path.exists(f):
                 self.analyze(f)
             else:
-                print "File %s does not exist!" % f
+                print("File %s does not exist!" % f)
 
         return self.ALL_FUNDS
 

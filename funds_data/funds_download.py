@@ -1,5 +1,5 @@
-import urllib2
-from settings import WEB_PAGES
+import urllib.request, urllib.error, urllib.parse
+from .settings import WEB_PAGES
 
 
 def download_all_webpages():
@@ -8,13 +8,13 @@ def download_all_webpages():
             url = WEB_PAGES[i]["url"]
             target_file = WEB_PAGES[i]["file"]
 
-            print "Downloading %s......" % url
-            f = urllib2.urlopen(url)
+            print("Downloading %s......" % url)
+            f = urllib.request.urlopen(url)
             with open(target_file, 'w') as tf:
                 tf.write(f.read())
 
         except Exception as ex:
-            print str(ex)
+            print(str(ex))
             break
 
 def main():

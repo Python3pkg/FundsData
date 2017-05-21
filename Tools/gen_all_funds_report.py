@@ -40,13 +40,13 @@ def analyze_file(file_path):
                 year = res[0] 
                 month = res[1]
     except Exception as ex:
-        print "Error happened when parsing file path: %s" % str(ex)
+        print("Error happened when parsing file path: %s" % str(ex))
     
     try:
         with open(file_path, "r") as infile:
             lines =  infile.read().split('\n')
     except Exception as ex:
-        print "Error happened when open file: " + str(ex)
+        print("Error happened when open file: " + str(ex))
         raise
             
     hit_flag = 0
@@ -147,7 +147,7 @@ def output_total_hash(result_file):
             outfile.write("}\n")
         
     except Exception as ex:
-        print "Error happened when output total_hash: %s" % str(ex)
+        print("Error happened when output total_hash: %s" % str(ex))
 
 
 def execute():
@@ -157,21 +157,21 @@ def execute():
             content = INFILE.read()
         current_report = simplejson.loads(content)
     except Exception as ex:
-        print "One exception: %s" % str(ex)
+        print("One exception: %s" % str(ex))
     
     # Step 2. Get report from web pages folder
     list_files(web_pages_dir)
     
     # Step 3. Merge current report into total_hash which represents information of latest web pages
     if current_report is not None:
-        for id, info in current_report.iteritems():
+        for id, info in current_report.items():
             if total_hash.get(id) is not None:
-                for date, value in current_report[id].iteritems():
+                for date, value in current_report[id].items():
                     if date != "title" and total_hash[id].get(date) is None:
                         total_hash[id][date] = value
             else:
                 total_hash[id] = {}
-                for k,v in current_report[id].iteritems():
+                for k,v in current_report[id].items():
                     total_hash[id][k] = v
         
     # Step 4. Output latest report of all funds
